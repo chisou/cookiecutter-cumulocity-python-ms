@@ -1,0 +1,30 @@
+{
+	"project_name": "My First Microservice",
+	"project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+	"provider": "My Company Name",
+	"author": "Anonymous",
+	"project_short_description": "A python microservice",
+	"license": ["mit", "bsd3", "asl2", "gpl3", "No license"],
+	"entrypoint": ["multi", "single"],
+	"create_venv": true,
+	"__prompts__": {
+		"project_name": "Project name",
+		"project_slug": "Normalized project name",
+		"provider": "Provider",
+		"author": "Author",
+		"project_short_description": "Short project description",
+		"entrypoint": {
+			"__prompt__": "What kind of microservice do you want to create?",
+			"multi": "Multi-Tenant Microservice",
+			"single": "Single-Tenant Microservice"
+		},
+		"license": {
+			"__prompt__": "Which license do you want to use?",
+			"mit": "MIT License",
+			"bsd3": "BSD License",
+			"asl2": "Apache Software License 2.0",
+			"gpl3": "GNU General Public License"
+		},
+		"create_venv": "Create virtual environment?"
+	}
+}

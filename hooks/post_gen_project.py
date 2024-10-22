@@ -11,11 +11,13 @@ if __name__ == '__main__':
         os.remove(fn)
 
     src = 'src/main'
-    if '{{ cookiecutter.entrypoint }}' == 'Multi-Tenant Microservice':
+    if '{{ cookiecutter.entrypoint }}' == 'multi':
         os.rename(f'{src}/multi_tenant.py', f'{src}/main.py')
-    elif '{{ cookiecutter.entrypoint }}' == 'Single-Tenant Microservice':
+    elif '{{ cookiecutter.entrypoint }}' == 'single':
         os.rename(f'{src}/single_tenant.py', f'{src}/main.py')
-
+    for fn in glob.glob(f'{src}/*.py'):
+        if 'main.py' not in fn:
+            os.remove(fn)
 
     if {{ cookiecutter.create_venv }}:
         dir = '.venv'
