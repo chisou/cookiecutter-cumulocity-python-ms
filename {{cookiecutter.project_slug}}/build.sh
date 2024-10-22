@@ -7,6 +7,7 @@
 
 NAME="$1"
 VERSION="$2"
+ISOLATION="$3"
 IMG_NAME=`echo "$NAME" | tr '[:upper:]' '[:lower:]' | tr '[:punct:]' '-'`
 
 BUILD_DIR="./build"
@@ -32,8 +33,9 @@ mkdir -p "$DIST_DIR"
 
 # copy & render sources
 cp ./requirements.txt "$BUILD_DIR"
-cp -r src/c8y_ms "$BUILD_DIR"
+cp -r src/main "$BUILD_DIR"
 sed -e "s/{VERSION}/$VERSION/g" ./src/cumulocity.json > "$BUILD_DIR/cumulocity.json"
+sed -e "s/{ISOLATION}/$ISOLATION/g" ./src/cumulocity.json > "$BUILD_DIR/cumulocity.json"
 sed -e "s/{SAMPLE}/$NAME/g" ./src/Dockerfile > "$BUILD_DIR/Dockerfile"
 
 # build image

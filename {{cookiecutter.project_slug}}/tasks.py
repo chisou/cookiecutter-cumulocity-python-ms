@@ -3,7 +3,6 @@
 # and/or its subsidiaries and/or its affiliates and/or their licensors.
 # Use, reproduction, transfer, publication or disclosure is prohibited except
 # as specifically provided for in your License Agreement with Software AG.
-
 import sys
 from datetime import datetime
 from dunamai import Version
@@ -17,8 +16,8 @@ def read_file(fn):
     with open(fn, 'rt') as fp:
         return fp.readline().strip()
 
-
 MICROSERVICE_NAME = read_file('MICROSERVICE_NAME')
+ISOLATION = read_file('ISOLATION')
 
 
 def resolve_version():
@@ -91,7 +90,7 @@ def build_ms(c, name=MICROSERVICE_NAME, version=None, isolation=ISOLATION):
     This will build a ready to deploy Cumulocity microservice from the
     sources.
     """
-    c.run(f'util/build.sh {name} {version or resolve_version()}')
+    c.run(f'./build.sh {name} {version or resolve_version()} {isolation}')
 
 
 @task(help={

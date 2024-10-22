@@ -2,13 +2,12 @@
   "apiVersion": "2",
   "version": "{VERSION}",
   "provider": {
-    "name": "{{cookiecutter.provider}}"
+    "name": "Software AG"
   },
-  {% if cookiecutter.entrypoint == 'Multi-Tenant Microservice' -%}"isolation": "MULTI_TENANT",
-  {% elif cookiecutter.entrypoint == 'Single-Tenant Microservice' -%}"isolation": "PER_TENANT",{% endif -%}
+  "isolation": "{ISOLATION}",
   "requiredRoles": [
-    "ROLE_INVENTORY_READ",
     "ROLE_INVENTORY_ADMIN",
+    "ROLE_INVENTORY_READ",
     "ROLE_ALARM_READ",
     "ROLE_ALARM_ADMIN",
     "ROLE_EVENT_READ",

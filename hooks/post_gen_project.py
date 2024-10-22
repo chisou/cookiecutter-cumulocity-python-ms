@@ -1,12 +1,15 @@
-
+import glob
 import os
 import subprocess
 
 if __name__ == '__main__':
 
-    if '{{ cookiecutter.license }}' == 'No license':
-        os.remove('LICENSE')
-        
+    print("Updating license ({{ cookiecutter.license }}) ...")
+    os.rename('LICENSE-{{ cookiecutter.license }}'.upper(), 'LICENSE')
+
+    for fn in glob.glob('LICENSE-*'):
+        os.remove(fn)
+
     src = 'src/main'
     if '{{ cookiecutter.entrypoint }}' == 'Multi-Tenant Microservice':
         os.rename(f'{src}/multi_tenant.py', f'{src}/main.py')
