@@ -14,7 +14,7 @@ if __name__ == '__main__':
     if '{{ cookiecutter.entrypoint }}' == 'multi':
         os.rename(f'{src}/multi_tenant.py', f'{src}/main.py')
     elif '{{ cookiecutter.entrypoint }}' == 'single':
-        os.rename(f'{src}/single_tenant.py', f'{src}/main.py')
+        os.rename(f'{src}/simple_tenant.py', f'{src}/main.py')
     for fn in glob.glob(f'{src}/*.py'):
         if 'main.py' not in fn:
             os.remove(fn)
