@@ -1,1 +1,1 @@
-{% if cookiecutter.entrypoint == 'Multi-Tenant Microservice' -%}MULTI_TENANT{% elif cookiecutter.entrypoint == 'Single-Tenant Microservice' -%}PER_TENANT{% endif -%}
+{% if cookiecutter.entrypoint == 'multi' -%}MULTI_TENANT{% elif cookiecutter.entrypoint == 'single' -%}PER_TENANT{%else -%}UNKNOWN{% endif -%}
